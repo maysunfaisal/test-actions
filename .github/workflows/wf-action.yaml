@@ -5,8 +5,8 @@ name: Comment on Pull Request
 on:
   workflow_run:
     workflows: ["Check Maysun"]
-    # branches: [ main ]
-    # types: [completed]
+    branches: [ main ]
+    types: [completed]
 
 jobs:
   comment:
