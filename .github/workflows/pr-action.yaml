@@ -1,4 +1,4 @@
-name: Check Maysun
+name: Maysun
 
 on:
   pull_request:
@@ -9,16 +9,18 @@ jobs:
     name: Check Maysun
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Save PR number
-      run: |
-        mkdir -p ./pr
-        echo ${{ github.event.number }} > ./pr/number
-    - name: Check stacks and samples ouput
-      continue-on-error: true
-      run: echo TESTING >> ./pr/output
-    - uses: actions/upload-artifact@v2
-      with:
-        name: pr
-        path: pr/
+    # - name: Checkout
+    #   uses: actions/checkout@v2
+    # - name: Save PR number
+    #   run: |
+    #     mkdir -p ./pr
+    #     echo ${{ github.event.number }} > ./pr/number
+    # - name: Check stacks and samples ouput
+    #   continue-on-error: true
+    #   run: echo TESTING >> ./pr/output
+    # - uses: actions/upload-artifact@v2
+    #   with:
+    #     name: pr
+    #     path: pr/
+    - name: hello1
+      run: echo "HELLO 1 :D"
