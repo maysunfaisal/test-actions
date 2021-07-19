@@ -6,7 +6,7 @@ on:
   workflow_run:
     workflows: ["Check Maysun"]
     branches: [ main ]
-    types: [completed]
+    # types: [completed]
 
 jobs:
   comment:
