@@ -1,0 +1,17 @@
+# inspired from https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
+
+name: Comment on Pull Request
+
+on:
+  workflow_run:
+    workflows: ["Check Maysun"]
+    branches: [ main ]
+    types: [completed]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+    - name: hello
+      run: echo "HELLO :D"
