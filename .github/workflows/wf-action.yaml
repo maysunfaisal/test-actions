@@ -35,7 +35,7 @@ jobs:
           var fs = require('fs');
           fs.writeFileSync('${{github.workspace}}/pr.zip', Buffer.from(download.data));
     - run: unzip pr.zip
-    - name: Comment on PR
+    - name: Comment on PR if there is output
       uses: actions/github-script@v3
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -43,9 +43,11 @@ jobs:
           var fs = require('fs');
           var issue_number = Number(fs.readFileSync('./number'));
           var test_output = String(fs.readFileSync('./output'));
-          await github.issues.createComment({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            issue_number: issue_number,
-            body: test_output
-          });
+          if (!test_output) {
+            await github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue_number,
+              body: test_output
+            });
+          }
