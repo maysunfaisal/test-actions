@@ -5,6 +5,7 @@ metadata:
   displayName: Maven Java
   description: Upstream Maven and OpenJDK 11 12
   tags: ["Java", "Maven"]
+  architectures: ["amd64"]
   projectType: "maven"
   language: "java"
 starterProjects:
