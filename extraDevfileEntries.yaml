@@ -12,7 +12,7 @@ samples:
         origin: https://github.com/nodeshift-starters/devfile-sample.git
   - name: code-with-quarkus
     displayName: Basic Quarkus
-    description: A simple Hello World Java application using Quarkus
+    description: A simple Hello World Java application using Quarkus 12
     icon: https://raw.githubusercontent.com/elsony/devfile-sample-code-with-quarkus/main/.devfile/icon/quarkus.png
     tags: ["Java", "Quarkus"]
     projectType: quarkus
