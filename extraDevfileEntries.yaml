@@ -5,6 +5,7 @@ samples:
     description: A simple Hello World Node.js application
     icon: https://raw.githubusercontent.com/maysunfaisal/node-bulletin-board-2/main/nodejs-icon.png
     tags: ["NodeJS", "Express"]
+    architectures: ["amd64"]
     projectType: nodejs
     language: nodejs
     git:
@@ -15,6 +16,7 @@ samples:
     description: A simple Hello World Java application using Quarkus 11
     icon: https://raw.githubusercontent.com/elsony/devfile-sample-code-with-quarkus/main/.devfile/icon/quarkus.png
     tags: ["Java", "Quarkus"]
+    architectures: ["amd64"]
     projectType: quarkus
     language: java
     git:
@@ -25,6 +27,7 @@ samples:
     description: A simple Hello World Java Spring Boot application using Maven
     icon: https://raw.githubusercontent.com/elsony/devfile-sample-java-springboot-basic/main/.devfile/icon/spring-logo.png
     tags: ["Java", "Spring"]
+    architectures: ["amd64"]
     projectType: springboot
     language: java
     git:
@@ -35,6 +38,7 @@ samples:
     description: A simple Hello World application using Python
     icon: https://raw.githubusercontent.com/elsony/devfile-sample-python-basic/main/.devfile/icon/python.png
     tags: ["Python"]
+    architectures: ["amd64"]
     projectType: python
     language: python
     git:
