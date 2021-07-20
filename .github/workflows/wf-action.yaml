@@ -41,13 +41,26 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           var fs = require('fs');
+          var path = require('path'); 
           var issue_number = Number(fs.readFileSync('./number'));
           var test_output = String(fs.readFileSync('./output'));
+          var header = "Please check if your stack/sample devfile has architectures mentioned.\n"
           if (test_output) {
-            await github.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issue_number,
-              body: test_output
-            });
+            test_output = header + test_output
+            if (path.existsSync('./commentid')) { 
+              var comment_id = Number(fs.readFileSync('./commentid'));
+              await github.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: comment_id,
+                body: test_output
+              });
+            } else {
+              await github.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue_number,
+                body: test_output
+              });
+            }
           }
