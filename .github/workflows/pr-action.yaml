@@ -6,21 +6,35 @@ on:
 
 jobs:
   check_architectures:
-    name: Check Maysun
+    name: Check Stack and Sample Architectures
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Install yq command
+      uses: redhat-actions/openshift-tools-installer@v1
+      with:
+        source: "github"
+        github_pat: ${{ secrets.GITHUB_TOKEN }}
+        # Installs the latest release of yq
+        yq: "latest"
+    - name: Get git diff
+      id: diff
+      uses: technote-space/get-diff-action@v4
+      with:
+        PATTERNS: |
+          +(stacks)/**/devfile.yaml
+          extraDevfileEntries.yaml
+    - name: Print the diff
+      run: echo git diff ${{ env.GIT_DIFF }}
     - name: Save PR number
       run: |
         mkdir -p ./pr
         echo ${{ github.event.number }} > ./pr/number
-    - name: Check stacks and samples ouput
+    - name: Check stacks and samples output
       continue-on-error: true
-      run: echo TESTING >> ./pr/output
+      run: tests/check_architectures.sh "${{ env.GIT_DIFF }}" yq >> ./pr/output
     - uses: actions/upload-artifact@v2
       with:
         name: pr
         path: pr/
-    - name: hello1
-      run: echo "HELLO 1 :D"
