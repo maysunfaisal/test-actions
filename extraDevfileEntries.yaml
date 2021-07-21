@@ -2,7 +2,7 @@ schemaVersion: 1.0.0
 samples:
   - name: nodejs-basic
     displayName: Basic Node.js
-    description: A simple Hello World Node.js application
+    description: A simple Hello World Node.js application 13
     icon: https://raw.githubusercontent.com/maysunfaisal/node-bulletin-board-2/main/nodejs-icon.png
     tags: ["NodeJS", "Express"]
     projectType: nodejs
@@ -33,6 +33,7 @@ samples:
   - name: python-basic
     displayName: Basic Python
     description: A simple Hello World application using Python
+    architectures: ["amd64"]
     icon: https://raw.githubusercontent.com/elsony/devfile-sample-python-basic/main/.devfile/icon/python.png
     tags: ["Python"]
     projectType: python
