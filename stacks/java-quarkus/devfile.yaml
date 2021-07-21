@@ -4,7 +4,7 @@ metadata:
   version: 1.1.0
   website: https://quarkus.io
   displayName: Quarkus Java
-  description: Quarkus with Java
+  description: Quarkus with Java 13
   tags: ["Java", "Quarkus"]
   projectType: "quarkus"
   language: "java"
