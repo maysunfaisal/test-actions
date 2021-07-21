@@ -3,6 +3,10 @@
 STACKS_DIR="$(pwd)/stacks/"
 EXTRA_DEVFILES_FILE="$(pwd)/extraDevfileEntries.yaml"
 
+display_usage() { 
+  echo "usage: check_architectures.sh \"stacks/java-maven/devfile.yaml stacks/java-openliberty/devfile.yaml\" [/path/to/yq]" 
+} 
+
 checkStacks() {
     STACK=$1
     for STACK_DIR in $(find $STACKS_DIR -maxdepth 1 -type d ! -path $STACKS_DIR); do
@@ -38,6 +42,12 @@ checkSamples() {
         fi
     done
 }
+
+# Check if stack devfiles to scan were passed in, if not, exit
+if [ $# -lt 1 ]; then
+  display_usage
+  exit 1
+fi
 
 YQ_PATH=$2
 if [[ -z $YQ_PATH ]]; then
