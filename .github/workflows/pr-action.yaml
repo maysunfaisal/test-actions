@@ -1,4 +1,4 @@
-name: Maysun
+name: Check Architectures
 
 on:
   pull_request:
@@ -43,8 +43,7 @@ jobs:
         body-includes: Please check if your stack/sample devfile has architectures mentioned.
     - name: Save Comment ID
       if: ${{ steps.find.outputs.comment-id != '' }}
-      run: |
-        echo ${{ steps.find.outputs.comment-id }} > ./pr/commentid
+      run: echo ${{ steps.find.outputs.comment-id }} > ./pr/commentid
     - uses: actions/upload-artifact@v2
       with:
         name: pr
