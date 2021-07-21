@@ -6,6 +6,7 @@ metadata:
   description: Upstream Maven and OpenJDK 11
   tags: ["Java", "Maven"]
   projectType: "maven"
+  architectures: ["amd64"]
   language: "java"
 starterProjects:
   - name: springbootproject
