@@ -20,6 +20,7 @@ metadata:
   version: 0.5.0
   displayName: "Open Liberty"
   description: Java application stack using Open Liberty runtime 12
+  architectures: ["amd64"]
   tags: ["Java", "Maven"]
   language: "java"
   projectType: "docker"
